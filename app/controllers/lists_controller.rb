@@ -2,21 +2,23 @@
 class ListsController < ApplicationController
 
   def index
-    return json: {success: false} unless current_user.id == params[:user_id]
-    @lists = current_user.lists
+    # return json: {success: false} unless current_user.id == params[:user_id]
+    @lists = current_user.lists if current_user
+    @lists = List.all if !current_user
+    render json: @lists
   end
 
   def show
-    return json: {success: false} unless current_user.id == params[:user_id]
+    # return json: {success: false} unless current_user.id == params[:user_id]
     if @list = List.find(params[:id])
-      return json: @list
+      render json: @list
     else
-      return json: {success: false}
+      render json: {success: false}
     end
   end
 
   def create
-    return json: {success: false} unless current_user.id == params[:user_id]
+    # return json: {success: false} unless current_user.id == params[:user_id]
     @list = List.new(list_params)
     if @list.save
       render json: @list
@@ -26,7 +28,7 @@ class ListsController < ApplicationController
   end
 
   def update
-    return json: {success: false} unless current_user.id == params[:user_id]
+    # return json: {success: false} unless current_user.id == params[:user_id]
     @list = List.find(params[:id])
     if @list.update(list_params)
       render json: @list
@@ -36,7 +38,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    return json: {success: false} unless current_user.id == params[:user_id]
+    # return json: {success: false} unless current_user.id == params[:user_id]
     @list = List.find(params[:id])
     if @list.destroy
       render json: {success: true}
