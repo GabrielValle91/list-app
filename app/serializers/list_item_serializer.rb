@@ -1,5 +1,5 @@
 # list_item_serializer.rb
-class ListItemSerialier < ActiveModel::Serializer
-  attributes :name, :quantity, :status
+class ListItemSerializer < ActiveModel::Serializer
+  attributes :id, :name, :quantity, :status
   belongs_to :list
 end
