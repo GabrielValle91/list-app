@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :lists, except: [:new, :edit] do 
       resources :list_items, only: [:create, :update, :destroy]
     end
+    resources :list_items, only: [:create, :update, :destroy]
   end
   get '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#logout'

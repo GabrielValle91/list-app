@@ -1,5 +1,5 @@
 # user_serializer.rb
-class UserSerialier < ActiveModel::Serializer
+class UserSerializer < ActiveModel::Serializer
   attributes :username
   has_many :lists
 end
