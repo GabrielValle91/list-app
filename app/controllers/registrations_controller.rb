@@ -8,7 +8,7 @@ class RegistrationsController < ApplicationController
       render json: @user
     else
       render json: @user.errors
-    end if
+    end
   end
 
   private 
