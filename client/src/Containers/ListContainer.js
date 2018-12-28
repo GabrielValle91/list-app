@@ -82,7 +82,7 @@ class ListsContainer extends Component{
             <Divider hidden section />
             { this.state.lists && this.state.lists.length ?
               <Container textAlign='left'><Segment inverted><List divided inverted relaxed size='big' animated>{lists}<ListEntryInput handleAddList={this.addList} /></List></Segment></Container>
-              : <Container textAlign='center'>No Lists Found</Container>
+              : <Container textAlign='center'>No Lists Found<ListEntryInput handleAddList={this.addList} /></List></Container>
             }
           </Container>
         :
