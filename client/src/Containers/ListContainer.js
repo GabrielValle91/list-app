@@ -6,7 +6,7 @@ import ListEntryInput from '../Components/ListEntryInput';
 class ListsContainer extends Component{
   constructor(){
     super();
-    this.state = {};
+    this.state = {lists: []};
   }
 
   addList = (list) => {
